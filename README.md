@@ -35,6 +35,6 @@ over a decade so the burden on the user is minimal.
 To check if the reality still matches the expectations:
 
 ```sh
-$ $ ping denon.vtuner.com
+$ ping denon.vtuner.com
 PING denon.vtuner.com (8.38.76.252) 56(84) bytes of data.
 ```
