@@ -16,6 +16,7 @@ ENV YC_VERSION master
 ENV YC_STATIONS /opt/ycast/stations.yml
 ENV YC_DEBUG OFF
 ENV YC_PORT 80
+ENV YC_ADDRS
 
 #
 # Upgrade alpine Linux, install python3 and dependencies for pillow - alpine does not use glibc
@@ -60,6 +61,11 @@ RUN apk --no-cache update && \
 #
 WORKDIR /opt/ycast/YCast-${YC_VERSION}
 
+#
+# Add listen addresses (if any).
+# Docker image must have elevated privileges: NET_ADMIN
+#
+RUN for rg in $YC_ADDRS; do ip addr add $rg dev eth0; done
 #
 # Copy bootstrap.sh to /opt
 #
