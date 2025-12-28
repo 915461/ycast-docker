@@ -62,11 +62,6 @@ RUN apk --no-cache update && \
 WORKDIR /opt/ycast/YCast-${YC_VERSION}
 
 #
-# Add listen addresses (if any).
-# Docker image must have elevated privileges: NET_ADMIN
-#
-RUN for rg in $YC_ADDRS; do ip addr add $rg dev eth0; done
-#
 # Copy bootstrap.sh to /opt
 #
 COPY bootstrap.sh /opt
