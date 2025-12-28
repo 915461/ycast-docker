@@ -6,7 +6,7 @@ Dockerfile for [milaq/ycast](https://github.com/milaq/YCast).
 
 ### Listen addresses
 
-If the user is unable or unwilling to modify the DNS server entries. Somoetimes
+If the user is unable or unwilling to modify the DNS server entries. Sometimes
 user would be required to set up own DNS service just to trick the Denon/Yamaha
 receiver to engage with YCast instead of now rather defunct service.
 
@@ -25,7 +25,7 @@ We must pass every destination address to the container so that it knows it is
 meant to consume them.
 
 ```sh
-YC_ADDRS="8.38.76.252/32 154.27.73.59/32"
+YC_ADDRS="8.38.76.252/32 154.27.73.59/32 23.238.108.243/32"
 ```
 
 If the radio one day stops working, it may just be that DNS entries changed; user
@@ -37,4 +37,7 @@ To check if the reality still matches the expectations:
 ```sh
 $ ping denon.vtuner.com
 PING denon.vtuner.com (8.38.76.252) 56(84) bytes of data.
+$ ping denon2.vtuner.com
+$ ping denon3.vtuner.com
+...
 ```
